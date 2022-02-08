@@ -25,8 +25,8 @@ Processor& System::Cpu() {
 vector<Process>& System::Processes() {
   auto pids = LinuxParser::Pids();
   processes_.clear();
-  for (int i : pids) {
-    processes_.push_back(Process(i));
+  for (const int i : pids) {
+    processes_.emplace_back(i);
   }
   return processes_;
 }

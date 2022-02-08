@@ -35,7 +35,11 @@ float Process::CpuUtilization() const {
   return util;
 }
 
-string Process::Command() { return command_; }
+string Process::Command() {
+  string comm_display =
+      (command_.size() > 50) ? command_.substr(0, 50) + "..." : command_;
+  return comm_display;
+}
 
 string Process::Ram() { return ram_; }
 
