@@ -6,7 +6,6 @@
 
 #include "linux_parser.h"
 
-using std::cout;
 using std::string;
 
 float Processor::Utilization() {
@@ -29,6 +28,5 @@ float Processor::Utilization() {
   } catch (...) {
     util = 0;
   }
-  cout << util << std::endl;
   return util;
 }

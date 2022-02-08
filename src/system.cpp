@@ -26,7 +26,10 @@ vector<Process>& System::Processes() {
   auto pids = LinuxParser::Pids();
   processes_.clear();
   for (const int i : pids) {
-    processes_.emplace_back(i);
+    Process p = Process(i);
+    if (p.Command().size() > 0 && p.Ram().size() > 0) {
+      processes_.emplace_back(i);
+    }
   }
   return processes_;
 }

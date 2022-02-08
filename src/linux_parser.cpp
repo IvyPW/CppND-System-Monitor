@@ -8,7 +8,6 @@
 #include <string>
 #include <vector>
 
-using std::cout;
 using std::stof;
 using std::stol;
 using std::string;
