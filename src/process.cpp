@@ -25,7 +25,7 @@ int Process::Pid() { return pid_; }
 
 float Process::CpuUtilization() const {
   float util;
-  float p_duration = LinuxParser::UpTime() - LinuxParser::UpTime(pid_);
+  float p_duration = LinuxParser::UpTime(pid_);
   float p_active = LinuxParser::ActiveJiffies(pid_) / sysconf(_SC_CLK_TCK);
   try {
     util = p_active / p_duration;
