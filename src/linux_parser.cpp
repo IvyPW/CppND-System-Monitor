@@ -19,13 +19,12 @@ T findValueByKey(std::string const& keyFilter, std::string const& filename) {
   std::string line;
   std::string key;
   T value;
-  std::ifstream stream(LinuxParser::kProcDirectory +
-                       LinuxParser::kVersionFilename);
+  std::ifstream stream(LinuxParser::kProcDirectory + filename);
   if (stream.is_open()) {
-    std::getline(stream, line);
-    std::istringstream linestream(line);
-    T val;
-    while (linestream >> key >> val) {
+    while (std::getline(stream, line)) {
+      std::istringstream linestream(line);
+      T val;
+      linestream >> key >> val;
       if (key == keyFilter) {
         value = val;
         break;
