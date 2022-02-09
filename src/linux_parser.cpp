@@ -19,7 +19,8 @@ T findValueByKey(std::string const& keyFilter, std::string const& filename) {
   std::string line;
   std::string key;
   T value;
-  std::ifstream stream(kProcDirectory + kVersionFilename);
+  std::ifstream stream(LinuxParser::kProcDirectory +
+                       LinuxParser::kVersionFilename);
   if (stream.is_open()) {
     std::getline(stream, line);
     std::istringstream linestream(line);
@@ -39,7 +40,7 @@ template <typename T>
 T getValueOfFile(std::string const& filename) {
   std::string line;
   T value;
-  std::ifstream stream(kProcDirectory + filename);
+  std::ifstream stream(LinuxParser::kProcDirectory + filename);
   if (stream.is_open()) {
     std::getline(stream, line);
     std::istringstream linestream(line);
